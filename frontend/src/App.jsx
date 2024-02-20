@@ -1,34 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Category from "./components/Category"
+import Heading from "./components/Heading"
+import Navbar from "./components/Navbar"
+import Options from "./components/Options"
+import TotalSpent from "./components/TotalSpent"
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
+  return(
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="">
+        <Navbar/>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <main className="lg:max-w-[60%] lg:mx-auto mt-10 ">
+        <Options/>
+
+        <div className="mt-6">
+          <Heading text={"Categories"}/>
+          <div className=" ">
+            <div className=" w-[fit-content]  sm:w-[80%] mx-auto grid grid-cols-2 p-4 gap-3 sm:mr-5">
+
+            <Category path={"/svgs/food.svg"} name={"food"}/>
+            <Category path={"/svgs/clothes.svg"} name={"clothes"}/>
+            <Category path={"/svgs/home.svg"} name={"home"}/>
+            <Category path={"/svgs/hygiene.svg"} name={"hygiene"}/>
+            <Category path={"/svgs/stationery.svg"} name={"stationery"}/>
+            <Category path={"/svgs/other.svg"} name={"other"}/>
+            
+            
+
+
+            </div>
+            <div className="max-w-[70%] mx-auto  ">
+
+              <TotalSpent/>
+            </div>
+
+            
+          </div>
+        </div>
+
+        <div className="mt-5">
+          <Heading text={"Previous Expenses"}/>
+
+        </div>
+      </main>
+    
+    
     </>
+    
   )
 }
 
